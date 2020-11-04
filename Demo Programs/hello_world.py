@@ -1,3 +1,10 @@
-hello_world.py
+myList = ['Raptors', 'Lakers', 'Celtics', 'Magic', 'Heat']
 
-Hello Coding
+doesExist = False in myList
+
+print(doesExist)
+size = len(myList)
+print(size)
+for n in range (0, len(myList));
+	print(myList[n])
+
