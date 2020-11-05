@@ -63,7 +63,7 @@ def add_placeholder_to(entry, placeholder, color="grey", font=None):
     return state
 
 class SearchBox(Frame):
-    def __init__(self, master, entry_width=30, entry_font=None, entry_background="white", entry_highlightthickness=1, button_text="Search", button_ipadx=10, button_background="#009688", button_foreground="white", button_font=None, opacity=0.8, placeholder=None, placeholder_font=None, placeholder_color="grey", spacing=3, command=None):
+    def __init__(self, master, entry_width=30, entry_font=None, entry_background="white", entry_highlightthickness=1, button_text="Go", button_ipadx=10, button_background="#009688", button_foreground="white", button_font=None, opacity=0.8, placeholder=None, placeholder_font=None, placeholder_color="grey", spacing=3, command=None):
         Frame.__init__(self, master)
         
         self._command = command
@@ -156,6 +156,6 @@ if __name__ == "__main__":
         showinfo("search command", "searching:%s"%text)
 
     root = Tk()
-    SearchBox(root, command=command, placeholder="Type and press enter", entry_highlightthickness=0).pack(pady=6, padx=3)
+    SearchBox(root, command=command, placeholder="Search an NBA team!", entry_highlightthickness=0).pack(pady=6, padx=3)
 
     root.mainloop()
