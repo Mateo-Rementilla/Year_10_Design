@@ -45,9 +45,58 @@ total_columns = 1
 # create root window 
 root = Tk() 
 t = Table(root) 
-
-
-
 root.mainloop()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

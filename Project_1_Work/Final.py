@@ -1,21 +1,9 @@
-# import everything from tkinter module 
-from tkinter import *    
-  
-# create a tkinter window 
-root = Tk()       
+from tkinter import *
 
-#BUTTON 
-
-# Open window having dimension 100x100 
-root.geometry('100x100')  
-
-# Create a Button 
-btn = Button(root, text = 'Click me !', bd = '5', 
-                          command = root.destroy)  
-# Set the position of button on the top of window.    
-btn.pack(side = 'top')  
-
-#TABLE 
+# create root window 
+root = Tk() 
+t = Table(root) 
+root.mainloop()
   
 class Table: 
       
@@ -32,6 +20,7 @@ class Table:
                   
                 self.e.grid(row=i, column=j, ) 
                 self.e.configure(text = lst[i]) 
+Table()
   
 # take the data
 lst = ['Stat',
@@ -56,19 +45,15 @@ lst = ['Stat',
 # columns in list 
 total_rows = len(lst) 
 total_columns = 1 
-
-T = Table(root)
-T.pack()
-
+  
+# Open window having dimension 100x100 
+root.geometry('100x100')  
+  
+# Create a Button 
+btn = Button(root, text = 'Click me !', bd = '5', 
+                          command = root.destroy)  
+  
+# Set the position of button on the top of window.    
+btn.pack(side = 'top')     
+  
 root.mainloop() 
-
-'''
-
-import requests
-import json
-
-url = "https://www.balldontlie.io/api/v1/teams "
-response = requests.get(url)
-print (response.text) 
-
-'''
