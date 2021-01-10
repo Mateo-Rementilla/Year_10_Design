@@ -22,6 +22,7 @@ TNLak = (data["data"][13]["full_name"]) #TeamNameLALakers
 def TotalData():  
     for line in content: 
         content_array.append(line.strip().split(',')) 
+#Creates a list of lists
 
 #MAIN
 myFile = open('TeamData.cvs.txt', 'r') #Opens Data file
@@ -29,7 +30,7 @@ content = myFile.readlines() #Readlines
 content_array = []
 TotalData() #Call for Data
 
-#Single Team Array Loops (This gets the stats for a single team)
+#Single Team Array Loops (This gets the number of the row for each team)
 Raptors = -1
 for i in range (1,len(content_array)): #Second Item in the Array 
 # to total numnber of items in the list (In this case it could 
@@ -81,12 +82,14 @@ for i in range (0,len(content_array)):
         pass
 
 #Create variable for specific team data 
+#Within the the list of lists print just the list/line for the Raptors 
 RaptorsStats = content_array[Raptors]
 LakersStats = content_array[Lakers]
 ClippersStats = content_array[Clippers]
 BucksStats = content_array[Bucks]
 HeatStats = content_array[Heat]
-Stats = content_array[StatType][:-1] #Unknown reason the first line which is the variable "Stats "in 'TeamData.cvs.txt' had an extra piece of data at the end in the list, hence [:-1]
+Stats = content_array[StatType][:-1] 
+#Unknown reason the first line which is the variable "Stats "in 'TeamData.cvs.txt' had an extra piece of data at the end in the list, hence [:-1]
 
 #FRAMES
 #Predictions Frames
@@ -168,20 +171,20 @@ RapsvsLakersSB.config(command=RapsvsLakersTable.yview)
 RapsvsLakersTable['columns']=('Toronto Raptors', 'Stat', 'Los Angeles Lakers') 
 
 #Format our Columns
-RapsvsLakersTable.column("#0", width=0, stretch=NO) #Phantom column needed (explain why)
+RapsvsLakersTable.column("#0", width=0, stretch=NO) #Phantom column 
 RapsvsLakersTable.column("Toronto Raptors", anchor=CENTER, width=120)
 RapsvsLakersTable.column("Stat", anchor=CENTER, width=80)
 RapsvsLakersTable.column("Los Angeles Lakers", anchor=CENTER, width=120)
 
 #Create headings 
-RapsvsLakersTable.heading("#0", text="Label", anchor=W)
+RapsvsLakersTable.heading("#0", anchor=W)
 RapsvsLakersTable.heading("Toronto Raptors", text=TNTor, anchor=CENTER) #Using API for Heading of Table
 RapsvsLakersTable.heading("Stat", text="Stat", anchor=CENTER)
 RapsvsLakersTable.heading("Los Angeles Lakers", text=TNLak, anchor=CENTER) #Using API for Heading of Table
 
 #Add Data
 for i in range (2,25): #Grabs all items in list from the 3rd to the 25th
-    RapsvsLakersTable.insert(parent='',index='end',iid=i,text="Parent",values=(RaptorsStats[i],Stats[i],LakersStats[i]))
+    RapsvsLakersTable.insert(parent='',index='end',iid=i,values=(RaptorsStats[i],Stats[i],LakersStats[i]))
 
 #Place the table on Raptors vs Lakers frame
 RapsvsLakersTable.place(x=167,y=170)
@@ -206,14 +209,14 @@ RapsvsClipsTable.column("Stat", anchor=CENTER, width=80)
 RapsvsClipsTable.column("Los Angeles Clippers", anchor=CENTER, width=120)
 
 #Create headings
-RapsvsClipsTable.heading("#0", text="Label", anchor=W)
+RapsvsClipsTable.heading("#0", anchor=W)
 RapsvsClipsTable.heading("Toronto Raptors", text=TNTor, anchor=CENTER)
 RapsvsClipsTable.heading("Stat", text="Stat", anchor=CENTER)
 RapsvsClipsTable.heading("Los Angeles Clippers", text=TNCli, anchor=CENTER)
 
 #Add Data
 for i in range (2,25): #Grabs all items in list from the 3rd to the 25th
-    RapsvsClipsTable.insert(parent='',index='end',iid=i,text="Parent",values=(RaptorsStats[i],Stats[i],ClippersStats[i]))
+    RapsvsClipsTable.insert(parent='',index='end',iid=i,values=(RaptorsStats[i],Stats[i],ClippersStats[i]))
 
 #Place the table on Raptors vs Clippers frame
 RapsvsClipsTable.place(x=167,y=170)
@@ -238,14 +241,14 @@ RapsvsBucksTable.column("Stat", anchor=CENTER, width=80)
 RapsvsBucksTable.column("Milwaukee Bucks", anchor=CENTER, width=120)
 
 #Create headings
-RapsvsBucksTable.heading("#0", text="Label", anchor=W)
+RapsvsBucksTable.heading("#0", anchor=W)
 RapsvsBucksTable.heading("Toronto Raptors", text=TNTor, anchor=CENTER)
 RapsvsBucksTable.heading("Stat", text="Stat", anchor=CENTER)
 RapsvsBucksTable.heading("Milwaukee Bucks", text=TNMil, anchor=CENTER)
 
 #Add Data
 for i in range (2,25): #Grabs all items in list from the 3rd to the 25th 
-    RapsvsBucksTable.insert(parent='',index='end',iid=i,text="Parent",values=(RaptorsStats[i],Stats[i],BucksStats[i])) 
+    RapsvsBucksTable.insert(parent='',index='end',iid=i,values=(RaptorsStats[i],Stats[i],BucksStats[i])) 
 
 #Place the table on Raptors vs Heat frame
 RapsvsBucksTable.place(x=167,y=170)
@@ -269,22 +272,22 @@ RapsvsHeatTable.column("Stat", anchor=CENTER, width=80)
 RapsvsHeatTable.column("Miami Heat", anchor=CENTER, width=120)
 
 #Create headings
-RapsvsHeatTable.heading("#0", text="Label", anchor=W)
+RapsvsHeatTable.heading("#0", anchor=W)
 RapsvsHeatTable.heading("Toronto Raptors", text=TNTor, anchor=CENTER)
 RapsvsHeatTable.heading("Stat", text="Stat", anchor=CENTER)
 RapsvsHeatTable.heading("Miami Heat", text=TNMia, anchor=CENTER)
 
 #Add Data
 for i in range (2,25): #Grabs all items in list from the 3rd to the 25th
-    RapsvsHeatTable.insert(parent='',index='end',iid=i,text="Parent",values=(RaptorsStats[i],Stats[i],HeatStats[i]))
+    RapsvsHeatTable.insert(parent='',index='end',iid=i,values=(RaptorsStats[i],Stats[i],HeatStats[i]))
 
 #Place the table on Raptors vs Lakers frame
 RapsvsHeatTable.place(x=167,y=170)
 
-#Create colour to table when stat is clicked on 
+#Creates colour to tables when stat is clicked on 
 Style = ttk.Style()
 
-#Configure allows us to add visual elements eg. colour
+#Add atributes eg. colour
 Style.configure("Treeview",
     background="silver",
     foreground="black",
@@ -343,5 +346,4 @@ HeatResult.place(x=250,y=445)
 ExitButtonHomepage = Button(RaptorsMain,text='Exit', bd='5',fg='black',command= root.destroy)
 ExitButtonHomepage.place(x=623, y=574) 
 
-#ROOT
 root.mainloop()
