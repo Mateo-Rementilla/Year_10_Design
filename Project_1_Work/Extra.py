@@ -301,11 +301,47 @@ Style.map('Treeview',
 #Win and Lose Buttons
 def myClick(team1Data, team2Data, team1Name, team2Name, frame):
     team1Score = team1Data[6] #[6] refers to 7th item in the list which is FG%
-    team2Score = team2Data[6]#[6] refers to 7th item in the list which is FG%
+    team2Score = team2Data[6] 
+
+    team1Score2 = team1Data[9] #[9] refers to 10th item in the list which is 3P%
+    team2Score2 = team2Data[9]
+
+    team1Score3 = team1Data[24] #[24] refers to 25th item in the list which is PTS%
+    team2Score3 = team2Data[24]
 
     if team1Score > team2Score: 
-        text = team1Name + " Win!"
+        total1score = 1
+        total2score = 0
     elif team1Score == team2Score: 
+        total1score = 0
+        total2score = 0
+    else: 
+        total1score = 0
+        total2score = 1
+
+    if team1Score2 > team2Score2: 
+        total1score = total1score + 1
+        total2score = total2score 
+    elif team1Score2 == team2Score2: 
+        total1score = total1score
+        total2score = total2score
+    else: 
+        total1score = total1score 
+        total2score = total2score + 1
+
+    if team1Score3 > team2Score3: 
+        total1score = total1score + 1
+        total2score = total2score 
+    elif team1Score3 == team2Score3: 
+        total1score = total1score
+        total2score = total2score
+    else: 
+        total1score = total1score 
+        total2score = total2score + 1
+
+    if total1score > total2score: 
+        text = team1Name + " Win!"
+    elif total1score == total2score: 
         text = "Tie Game"
     else: 
         text = team2Name + " Win!"
