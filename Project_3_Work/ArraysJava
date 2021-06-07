@@ -1,0 +1,45 @@
+
+public class Arrays {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		String Clubs[] = {"Putter", "Sand Wedge", "Pitching Wedge", "9 Iron ", "8 Iron", "7 Iron", "6 Iron", "5 Iron", "4 Hybrid", "3 Hybrid", "3 Wood", "Driver"};
+		String Brands[] = {"Callaway", "Titleist", "TaylorMade", "Ping", "Cobra"};
+		String TypeOfHole[] = {"3", "4", "5"};
+		String ScoresOfPar3[] = {"Hole-in-One", "Birdie", "Par", "Bogey", "Double-Bogey", "Triple-Bogey"}; 
+		String ScoresOfPar4[] = {"Hole-in-One", "Eagle", "Birdie", "Par", "Bogey", "Double-Bogey", "Triple-Bogey", "Quadraple-Bogey"}; 
+		String ScoresOfPar5[] = {"Hole-in-One", "Albatross", "Eagle", "Birdie", "Par", "Bogey", "Double-Bogey", "Triple-Bogey", "Quadrouple-Bogey", "Quintuple-Bogey"}; 
+		
+		int RandNumclubs = (int)(Math.random()*12);
+		int RandNumbrands = (int)(Math.random()*5);
+		int RandNumtypeofhole = (int)(Math.random()*3);	
+		int RandNumscorespar3 = (int)(Math.random()*6);
+		int RandNumscorespar4 = (int)(Math.random()*8);
+		int RandNumscorespar5 = (int)(Math.random()*10);
+
+		String RandomClub = Clubs[RandNumclubs];
+		String RandomBrand = Brands[RandNumbrands];
+		String RandomTypeOfHole = TypeOfHole[RandNumtypeofhole];
+		String RandomScoreOnPar3 = ScoresOfPar3[RandNumscorespar3];
+		String RandomScoreOnPar4 = ScoresOfPar4[RandNumscorespar4];
+		String RandomScoreOnPar5 = ScoresOfPar5[RandNumscorespar5];
+
+		System.out.println("Par: " + RandomTypeOfHole);
+		System.out.println("Starting Club: " + RandomClub);
+		System.out.println("Brand: " + RandomBrand);
+				
+		if (RandomTypeOfHole.equals("3")) {
+			System.out.println("Score: " + RandomScoreOnPar3);
+		}
+		
+		else if (RandomTypeOfHole.equals("4")) {
+			System.out.println("Score: " + RandomScoreOnPar4);
+		}
+		
+		else if (RandomTypeOfHole.equals("5")) {
+			System.out.println("Score: " + RandomScoreOnPar5);
+		}		
+	}
+
+}

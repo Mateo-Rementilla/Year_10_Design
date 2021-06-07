@@ -1,0 +1,22 @@
+
+public class ForLoop {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		for(int i = 0; i < 10; i++) {
+			System.out.println("This statement will get repeated 9 times");
+		}
+		
+		for(int i = 0; i < 10; i++) {
+			System.out.println(i);
+		}
+		
+		int[] favouritenumbers = {300,22,313,3431};
+		
+		for(int i = 0; i < favouritenumbers.length; i++) {
+			System.out.println(favouritenumbers[i]);
+		}
+	}
+
+}

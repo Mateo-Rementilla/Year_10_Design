@@ -1,0 +1,25 @@
+
+public class Methods {
+	
+	static void myMethod() {
+	    System.out.println("This is a function");
+	}
+
+	public static void main(String[] args) {
+	    myMethod();
+	}
+
+}
+
+
+public class Names {
+	  static void myMethod(String fname) {
+	    System.out.println(fname + " Norris");
+	  }
+
+	  public static void main(String[] args) {
+	    myMethod("Lando");
+	    myMethod("Max");
+	    myMethod("Lewis");
+	  }
+}
